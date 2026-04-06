@@ -1,0 +1,121 @@
+/* Обнуление базовых отступов */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter', sans-serif;
+}
+
+body {
+    background-color: #f4f7f6; /* Светло-серый фон страницы */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+.login-container {
+    width: 100%;
+    max-width: 400px;
+    padding: 20px;
+}
+
+.login-card {
+    background: #ffffff;
+    padding: 40px;
+    border-radius: 20px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
+    text-align: center;
+}
+
+.login-header h1 {
+    font-weight: 900;
+    font-size: 28px;
+    letter-spacing: -1px;
+    margin-bottom: 5px;
+    color: #000;
+}
+
+.login-header h1 span {
+    color: #ccff00; /* Ярко-салатовый акцент как на логотипе */
+}
+
+.login-header h3 {
+    font-size: 14px;
+    font-weight: 400;
+    color: #888;
+    margin-bottom: 30px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    font-weight: 500;
+    color: #666;
+    margin-bottom: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 15px;
+    background-color: #ebf0ff; /* Светло-голубой фон инпутов */
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+}
+
+.form-group input::placeholder {
+    color: #aab;
+}
+
+.form-group input:focus {
+    background-color: #e2e8f5;
+    box-shadow: 0 0 0 2px rgba(162, 161, 255, 0.3);
+}
+
+.btn-primary {
+    width: 100%;
+    padding: 15px;
+    background-color: #a2a1ff; /* Сиреневый цвет кнопки */
+    color: white;
+    border: none;
+    border-radius: 12px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    margin-top: 10px;
+}
+
+.btn-primary:hover {
+    background-color: #8e8dff;
+}
+
+.toggle-link {
+    display: inline-block;
+    margin-top: 20px;
+    font-size: 13px;
+    color: #a2a1ff;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.toggle-link:hover {
+    text-decoration: underline;
+}
+
+/* Стили для сообщений об ошибках/успехе */
+.status-msg {
+    font-size: 13px;
+    padding: 10px;
+    border-radius: 8px;
+    margin-bottom: 15px;
+}

@@ -1,0 +1,147 @@
+/* 1. СБРОС СТИЛЕЙ — чтобы всё было ровно как в Figma */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Твой основной шрифт */
+    background-color: #ffffff;
+}
+
+/* 2. СТИЛИ ШАПКИ (HEADER) */
+.main-header {
+    width: 100%;
+    height: 220px; /* ВЫСОТА ШАПКИ: замерь в Figma */
+    background-image: url('img/Rectangle\ 8.png'); /* ФОН С КРОССОВКАМИ */
+    background-size: cover
+     ;
+    background-position: center;
+    position: relative;
+    color: white;
+}
+
+/* Затемнение фона, если текст плохо видно (если есть в Figma) */
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0,0,0,0.3); /* Прозрачность слоя поверх картинки */
+}
+
+.header-content {
+    position: relative; /* Чтобы контент был выше затемнения */
+    max-width: 1200px;  /* ШИРИНА КОНТЕНТА: замерь в Figma */
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between; /* Распределяем: Лого - Слева, Меню - Центр, Иконки - Справа */
+    align-items: center;
+    margin-bottom: 60px; /* Расстояние до нижнего меню категорий */
+}
+
+.logo {
+    font-size: 26px;      /* РАЗМЕР ЛОГО: проверь в Figma */
+    font-weight: 700;     /* ЖИРНОСТЬ ЛОГО */
+    letter-spacing: 2px;
+}
+
+.top-nav a, .header-icons span {
+    color: white;
+    text-decoration: none;
+    margin: 0 15px;      /* ОТСТУПЫ МЕЖДУ ССЫЛКАМИ: замерь в Figma */
+    font-size: 14px;
+}
+
+/* Меню категорий (Одежда, Обувь и т.д.) */
+.categories-nav {
+    display: flex;
+    gap: 30px;           /* РАССТОЯНИЕ МЕЖДУ КАТЕГОРИЯМИ */
+}
+
+.categories-nav a {
+    color: #cccccc;      /* ЦВЕТ: на скрине они чуть тусклее */
+    text-decoration: none;
+    font-size: 13px;
+    text-transform: uppercase;
+    font-weight: 500;
+}
+
+.categories-nav .sale-link {
+    color: #ff0000;      /* ЦВЕТ SALE %: подставь Hex из Figma */
+}
+
+/* 3. СЕКЦИЯ КАТАЛОГА (NEW ARRIVALS) */
+.catalog-section {
+    background-color: #D9D9D9; /* ФОН КАТАЛОГА: скопируй точный цвет из Figma */
+    padding: 80px 0;
+}
+
+.container {
+    max-width: 1100px; /* Внутренняя ширина под карточки */
+    margin: 0 auto;
+}
+
+.section-title {
+    text-align: center;
+    font-size: 34px;      /* РАЗМЕР ЗАГОЛОВКА */
+    font-weight: 400;     /* ТОНКИЙ, как на скрине */
+    letter-spacing: 5px;  /* РАЗРЯДКА БУКВ */
+    margin-bottom: 50px;
+    color: #333333;
+    text-transform: uppercase;
+}
+
+/* 4. СЕТКА И КАРТОЧКИ */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 КАРТОЧКИ В РЯД */
+    gap: 20px;            /* ОТСТУПЫ МЕЖДУ НИМИ */
+}
+
+.product-card {
+    background-color: #F8F8F8; /* ФОН КАРТОЧКИ: проверь, белый он или чуть серый */
+    border-radius: 12px;      /* СКРУГЛЕНИЕ: замерь в Figma */
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.img-box {
+    width: 100%;
+    height: 180px;        /* ВЫСОТА МЕСТА ПОД КРОССОВОК */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.img-box img {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;  /* Чтобы фото не обрезалось */
+}
+
+.cat {
+    font-size: 10px;
+    color: #999;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.name {
+    font-size: 15px;      /* НАЗВАНИЕ: жирное и четкое */
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 13px;
+    color: #666;
+}

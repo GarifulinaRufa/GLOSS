@@ -1,0 +1,197 @@
+/* 1. СБРОС СТИЛЕЙ — чтобы всё было ровно как в Figma */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif; /* Твой основной шрифт */
+    background-color: #ffffff;
+}
+
+/* 2. СТИЛИ ШАПКИ (HEADER) */
+.main-header {
+    width: 100%;
+    height: 220px; /* ВЫСОТА ШАПКИ: замерь в Figma */
+    background-image: url('img/Rectangle\ 8.png'); /* ФОН С КРОССОВКАМИ */
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    color: white;
+}
+
+/* Затемнение фона, если текст плохо видно (если есть в Figma) */
+.main-header::before {
+    content: '';
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.584); /* Прозрачность слоя поверх картинки */
+}
+
+.header-content {
+    position: relative; /* Чтобы контент был выше затемнения */
+    max-width: 1200px;  /* ШИРИНА КОНТЕНТА: замерь в Figma */
+    margin: 0 auto;
+    padding: 40px 20px;
+}
+
+.header-top {
+    display: flex;
+    justify-content: space-between; /* Распределяем: Лого - Слева, Меню - Центр, Иконки - Справа */
+    align-items: center;
+    margin-bottom: 60px; /* Расстояние до нижнего меню категорий */
+}
+
+.logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 48px;
+    letter-spacing: 1px;
+}
+.logo-white { font-weight: 900; color: #fff; }
+.logo-gray { font-weight: 300; color: rgba(255,255,255,0.6); }
+
+.nav__list {
+    display: flex;
+    list-style: none;
+    gap: 45px;
+}
+.nav__link {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+/* Только смена цвета, без линий */
+.nav__link:hover, .nav__link.active {
+    opacity: 1;
+    color: #CCFF00;
+}
+
+.header__actions {
+    display: flex;
+    gap: 25px;
+}
+.icon-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.icon-btn:hover { 
+    color: #CCFF00; 
+    transform: translateY(-2px);
+}
+/* Меню категорий (Одежда, Обувь и т.д.) */
+/* Меню категорий (Одежда, Обувь и т.д.) */
+.categories-nav {
+    display: flex;
+    gap: 25px;   
+    margin-top: -20px;         /* Поднимаем меню чуть выше к основному контенту */
+    padding-top: 15px;         /* ОТСТУП: расстояние от линии до текста ссылок */
+    border-top: 1px solid #CCFF00; /* ЛИНИЯ: 1px, сплошная, полупрозрачно-белая */
+    width: fit-content;        /* Длина линии подстраивается под ширину текста */
+}
+
+.categories-nav a {
+    color: #cccccc;      
+    text-decoration: none;
+    font-size: 12px;
+    text-transform: uppercase;
+    font-weight: 600;
+    transition: 0.3s;          /* Плавность при наведении */
+}
+
+/* Эффект при наведении на категорию */
+.categories-nav a:hover {
+    color: #CCFF00;            /* Текст становится ярче */
+}
+
+.categories-nav .sale-link {
+    color: #ff0000;      
+}
+/* 3. СЕКЦИЯ КАТАЛОГА (NEW ARRIVALS) */
+.catalog-section {
+    background-color: #D9D9D9; /* ФОН КАТАЛОГА: скопируй точный цвет из Figma */
+    padding: 80px 0;
+}
+
+.container {
+    max-width: 1200px; /* Внутренняя ширина под карточки */
+    margin: 0 auto;
+    background-color:rgb(235, 233, 231);
+}
+
+.section-title {
+    text-align: center;
+    font-size: 40px;      /* РАЗМЕР ЗАГОЛОВКА */
+    font-weight: 400;     /* ТОНКИЙ, как на скрине */
+    letter-spacing: 5px;  /* РАЗРЯДКА БУКВ */
+    margin-top: -50px;
+    margin-bottom: 30px;
+    color: #333333;
+    text-transform: uppercase;
+}
+
+/* 4. СЕТКА И КАРТОЧКИ */
+.products-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 КАРТОЧКИ В РЯД */
+    gap: 20px;            /* ОТСТУПЫ МЕЖДУ НИМИ */
+}
+
+.product-card {
+    background-color: #f9f9f9; /* ФОН КАРТОЧКИ: проверь, белый он или чуть серый */
+    border-radius: 40px;      /* СКРУГЛЕНИЕ: замерь в Figma */
+    width: 260px;
+    height: 351px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.img-box {
+    width: 100%;
+    height: 250px;         /* ФИКСИРОВАННАЯ ВЫСОТА: установи ту, что в Figma (например, 220px или 250px) */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+    overflow: hidden;      /* ОБРЕЗКА: всё, что не влезает в 250px, будет скрыто */
+    border-radius: 8px;    /* Если у самих фото внутри должны быть скругленные углы */
+}
+
+.img-box img {
+    width: 100%;           /* Растягиваем на всю ширину блока */
+    height: 100%;          /* Растягиваем на всю высоту блока */
+    
+    /* ГЛАВНОЕ ИЗМЕНЕНИЕ */
+    object-fit: cover;     /* ЗАПОЛНЕНИЕ: фото заполнит весь блок 250px, лишнее обрежется по краям */
+    
+    object-position: center; /* ЦЕНТРИРОВАНИЕ: обрезка будет идти равномерно со всех сторон */
+}
+
+.cat {
+    font-size: 10px;
+    color: #999;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+.name {
+    font-size: 15px;      /* НАЗВАНИЕ: жирное и четкое */
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 13px;
+    color: #666;
+}

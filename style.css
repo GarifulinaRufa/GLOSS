@@ -1,0 +1,372 @@
+:root {
+    --lime: #CCFF00;
+    --black: #000;
+    --light-gray: #F5F5F7;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body { background-color: var(--black); font-family: 'Inter', sans-serif; overflow-x: hidden; }
+.container { max-width: 1300px; margin: 0 auto; padding: 0 5%; }
+
+/* HEADER */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+
+.container, .header__container, .hero__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+}
+
+/* ШАПКА */
+.header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 40px 0;
+    z-index: 100;
+    /* Появление шапки сверху */
+    animation: fadeInDown 0.8s ease forwards;
+}
+
+.header__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-family: 'Inter', sans-serif;
+    font-size: 32px;
+    letter-spacing: 1px;
+}
+.logo-white { font-weight: 900; color: #fff; }
+.logo-gray { font-weight: 300; color: rgba(255,255,255,0.6); }
+
+.nav__list {
+    display: flex;
+    list-style: none;
+    gap: 45px;
+}
+.nav__link {
+    font-family: 'Inter', sans-serif;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    text-transform: uppercase;
+    opacity: 0.7;
+    transition: 0.3s;
+}
+/* Только смена цвета, без линий */
+.nav__link:hover, .nav__link.active {
+    opacity: 1;
+    color: #CCFF00;
+}
+
+.header__actions {
+    display: flex;
+    gap: 25px;
+}
+.icon-btn {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.icon-btn:hover { 
+    color: #CCFF00; 
+    transform: translateY(-2px);
+}
+
+
+.hero__content h1 {
+    font-family: 'Inter', sans-serif;
+    font-size: 110px;
+    font-weight: 900;
+    line-height: 0.85;
+    letter-spacing: -4px;
+    color: #fff;
+    margin-bottom: 25px;
+    /* Анимация текста */
+    animation: fadeInUp 1s ease 0.2s both;
+}
+
+.hero__content p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 18px;
+    max-width: 550px;
+    color: rgba(255,255,255,0.8);
+    margin-bottom: 45px;
+    animation: fadeInUp 1s ease 0.4s both;
+}
+
+.btn-main {
+    display: inline-block;
+    background-color: #CCFF00;
+    color: #000;
+    padding: 22px 55px;
+    border-radius: 100px;
+    text-decoration: none;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    animation: fadeInUp 1s ease 0.6s both;
+}
+
+.btn-main:hover {
+    transform: scale(1.05);
+    box-shadow: 0 10px 20px rgba(204, 255, 0, 0.3);
+}
+
+/* STORE - ТОТ САМЫЙ БЕЛЫЙ БЛОК */
+.store-light { 
+    padding: 120px 0; 
+    background-color: var(--light-gray); 
+    color: #111;
+    background-image: linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: calc(100% / 12) 100%; /* Сетка как ты хотел */
+}
+.store__grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+.section-title { font-size: 48px; font-weight: 800; margin-bottom: 30px; }
+.label-gray { color: #808080; font-size: 12px; font-weight: 700; text-transform: uppercase; display: block; margin-bottom: 5px; }
+.info-item { margin-bottom: 25px; border-left: 2px solid #808080; padding-left: 25px; }
+.btn-outline-dark { display: inline-block; border: 1px solid #111; color: #111; padding: 12px 30px; border-radius: 50px; text-decoration: none; font-size: 13px; font-weight: 700; }
+
+.map-container { position: relative; height: 400px; border-radius: 4px; overflow: hidden; }
+.map-overlay-white { position: absolute; inset: 0; background: linear-gradient(to right, var(--light-gray) 0%, transparent 40%); z-index: 2; }
+.map-mock { width: 100%; height: 100%; background: #e0e0e0 url('img/map.png') center/cover; filter: grayscale(1); }
+
+/* FOOTER - Белый минимализм */
+.footer { padding: 80px 0; background: #fff; color: #000; border-top: 1px solid rgba(0,0,0,0.05); }
+.footer__grid { display: flex; justify-content: space-between; align-items: flex-start; }
+.logo-footer { font-size: 20px; font-weight: 900; letter-spacing: 0.05em; margin-bottom: 10px; }
+.logo-footer span { color: #888; }
+.copy { font-size: 11px; color: #888; }
+
+.footer-label { font-size: 11px; font-weight: 900; display: block; margin-bottom: 10px; }
+.contact-row { display: flex; align-items: center; gap: 10px; font-weight: 800; font-size: 16px; }
+.dot { width: 8px; height: 8px; background: var(--lime); border-radius: 50%; display: inline-block; box-shadow: 0 0 8px var(--lime); }
+.sep { opacity: 0.1; margin: 0 10px; }
+.right { text-align: right; }
+.loc-text { font-weight: 700; font-size: 14px; }
+
+.hero {
+    position: relative;
+    height: 100vh;
+    /* Важно: нижний градиент в самом фоне тоже должен вести к var(--light-gray) */
+    background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 80%), 
+                url('img/sport.png') no-repeat center center / cover;
+    display: flex;
+    align-items: center;
+    background-color: #000; /* Базовый цвет */
+}
+
+.hero__container {
+    position: relative;
+    z-index: 10; /* Поднимаем текст выше оверлея */
+}
+
+/* МАГИЯ ПЕРЕХОДА */
+.hero__overlay {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 300px; /* Высота зоны перехода */
+    /* Плавное растворение черного в светло-серый (цвет блока локации) */
+    background: linear-gradient(to bottom, transparent, var(--light-gray));
+    z-index: 5;
+    pointer-events: none; /* Чтобы градиент не мешал кликать по кнопкам */
+}
+
+/* Затемнение фона при открытии корзины */
+.overlay-dark {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.7);
+    z-index: 150;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+}
+.overlay-dark.active { opacity: 1; pointer-events: auto; }
+
+/* Поиск */
+.search-overlay {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 120px;
+    background: #0000001d;
+    z-index: 200;
+    transition: 0.5s cubic-bezier(0.77, 0, 0.175, 1);
+    display: flex;
+    align-items: center;
+}
+.search-overlay.active { top: 0; }
+.search-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    width: 90%;
+    display: flex;
+    gap: 20px;
+}
+.search-container input {
+    width: 100%;
+    background: transparent;
+    border: none;
+    border-bottom: 2px solid var(--lime);
+    color: #fff;
+    font-size: 24px;
+    padding: 10px 0;
+    outline: none;
+}
+
+/* Корзина */
+/* Фоновое затемнение */
+.overlay-dark {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.6);
+    backdrop-filter: blur(5px); /* Модный эффект размытия */
+    z-index: 150;
+    opacity: 0;
+    pointer-events: none;
+    transition: 0.4s;
+}
+.overlay-dark.active { opacity: 1; pointer-events: auto; }
+
+/* Корзина */
+.cart-drawer {
+    position: fixed;
+    right: -450px;
+    top: 20px;
+    bottom: 20px;
+    width: 400px;
+    background: #fff;
+    z-index: 200;
+    transition: 0.5s cubic-bezier(0.165, 0.84, 0.44, 1);
+    padding: 40px;
+    display: flex;
+    flex-direction: column;
+    border-radius: 40px 0 0 40px; /* Округление слева */
+    box-shadow: -15px 0 40px rgba(0,0,0,0.1);
+}
+.cart-drawer.active { right: 0; }
+
+.cart-header h3 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400; /* Не жирный */
+    font-size: 14px;
+    letter-spacing: 2px;
+    color: #000;
+}
+
+.close-btn {
+    background: #f5f5f7;
+    border: none;
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 20px;
+    transition: 0.3s;
+}
+.close-btn:hover { background: var(--lime); transform: rotate(90deg); }
+
+.empty-msg {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    color: #888;
+    text-align: center;
+    margin-top: 100px;
+    font-size: 14px;
+}
+
+/* Контейнер для кнопки, чтобы прижать её вправо */
+.cart-footer {
+    border-top: 1px solid rgba(0,0,0,0.05);
+    padding-top: 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end; /* Все элементы внутри (Total и Кнопка) прижимаются вправо */
+}
+
+/* Итоговая сумма тоже прижмется вправо */
+.total {
+    width: 100%; /* Чтобы текст "ИТОГО" и сумма разошлись по краям */
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 400;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+/* Компактная кнопка справа */
+.cart-checkout-btn {
+    display: inline-flex;   /* Занимает место только под текст */
+    align-items: center;
+    justify-content: center;
+    background: #000;
+    color: var(--lime);
+    border: none;
+    
+    /* Уменьшенные размеры */
+    padding: 12px 35px;     /* Сделали еще тоньше (12px) и компактнее по бокам */
+    font-size: 13px;        /* Чуть меньше шрифт для аккуратности */
+    
+    border-radius: 100px;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    cursor: pointer;
+    transition: 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.cart-checkout-btn:hover {
+    background: #222;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+}
+
+/* Стиль поиска */
+.search-overlay {
+    position: fixed;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 150px;
+    background: #000;
+    z-index: 300;
+    display: flex;
+    align-items: center;
+    transition: 0.5s;
+}
+.search-overlay.active { top: 0; }
+.search-container input {
+    width: 100%;
+    background: none;
+    border: none;
+    border-bottom: 1px solid var(--lime);
+    color: #fff;
+    font-size: 30px;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 300;
+    outline: none;
+}

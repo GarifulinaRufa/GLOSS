@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GLOSS & SPORT</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="header__container">
+            <div class="logo" style="font-size: 60px;">
+                <span class="logo-white">GLOSS</span> <span style="color:#CCFF00">&</span> <span class="logo-gray">SPORT</span>
+            </div>
+
+            <nav class="nav">
+                <ul class="nav__list">
+                    <li><a href="#" class="nav__link active">Главная</a></li>
+                    <li><a href="http://localhost/GLOSS/catalog.php?new=1" class="nav__link">Новинки</a></li>
+                    <li><a href="http://localhost/GLOSS/catalog.php" class="nav__link">Каталог</a></li>
+                </ul>
+            </nav>
+
+            <div class="header__actions">
+                <button class="icon-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+                <button class="icon-btn">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4Z"></path><path d="M3 6h18"></path><path d="M16 10a4 4 0 0 1-8 0"></path></svg>
+                </button>
+            </div>
+        </div>
+    </header>
+
+   <section class="hero">
+    <div class="hero__container">
+        <div class="hero__content">
+            <h1>MOVE BEYOND<br>LIMITS</h1>
+            <p>Высокоэффективное снаряжение для спортсменов, тренирующихся с неустанной сосредоточенностью.</p>
+            <a href="saite.php" class="btn-main">SHOP NOW</a>
+        </div>
+    </div>
+    <div class="hero__overlay"></div>
+</section>
+
+    <section class="store-light">
+        <div class="container store__grid">
+            <div class="store__info">
+                <h2 class="section-title">Sporting Store</h2>
+                <div class="info-item">
+                    <span class="label-gray">LOCATION:</span>
+                    <p>г. Каракол, Гагарина 127 📍</p>
+                </div>
+                <div class="info-item">
+                    <span class="label-gray">VISITING HOURS:</span>
+                    <p>MON — SUN: 10:00 — 22:00</p>
+                </div>
+                <a href="#" class="btn-outline-dark">GET DIRECTIONS</a>
+            </div>
+            <div class="map-container">
+                <div class="map-overlay-white"></div>
+                <div class="map-mock"></div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container footer__grid">
+            <div class="footer__col">
+                <div class="logo-footer">GLOSS <span>& SPORT</span></div>
+                <p class="copy">© 2026. GLOSS & SPORT<br>ALL RIGHTS RESERVED</p>
+            </div>
+            <div class="footer__col center">
+                <span class="footer-label">CUSTOMER SERVICE</span>
+                <div class="contact-row">
+                    <span class="wa">WHATSAPP CHAT <i class="dot"></i></span>
+                    <span class="sep">|</span>
+                    <span class="phone">+996 (XXX) XX-XX-XX</span>
+                </div>
+            </div>
+            <div class="footer__col right">
+                <span class="footer-label">LOCATION</span>
+                <p class="loc-text">KARAKOL, GAGARINA 127</p>
+            </div>
+        </div>
+    </footer>
+    <div class="search-overlay" id="searchOverlay">
+        <div class="search-container">
+            <input type="text" placeholder="ЧТО ВЫ ИЩЕТЕ?" id="searchInput">
+            <button class="close-btn" id="closeSearch">&times;</button>
+        </div>
+    </div>
+    
+    <div class="cart-drawer" id="cartDrawer">
+        <div class="cart-header">
+            <h3>ВАША КОРЗИНА</h3>
+            <button class="close-btn" id="closeCart">&times;</button>
+        </div>
+        <div class="cart-content">
+            <p class="empty-msg">В корзине пока пусто.</p>
+        </div>
+        <div class="cart-footer">
+            <div class="total">ИТОГО: <span>0 сом</span></div>
+            <button class="cart-checkout-btn " style="width: 100%; border-radius: 0;">ОФОРМИТЬ ЗАКАЗ</button>
+        </div>
+    </div>
+    <div class="overlay-dark" id="bodyOverlay"></div>
+    <script src="script.js"></script>
+</body>
+</html>

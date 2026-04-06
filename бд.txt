@@ -1,0 +1,121 @@
+-- =============================================
+-- 1. СОЗДАНИЕ БАЗЫ ДАННЫХ
+-- =============================================
+DROP DATABASE IF EXISTS my_sate;
+CREATE DATABASE IF NOT EXISTS my_sate;
+USE my_sate;
+
+-- =============================================
+-- 2. ТАБЛИЦА КАТЕГОРИЙ
+-- =============================================
+CREATE TABLE IF NOT EXISTS categories (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    slug VARCHAR(100) NOT NULL UNIQUE,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- =============================================
+-- 3. ТАБЛИЦА ТОВАРОВ
+-- =============================================
+CREATE TABLE IF NOT EXISTS products (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(255) NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    description TEXT,
+    image VARCHAR(255),
+    category_id INT,
+    stock INT DEFAULT 0 COMMENT 'Количество на складе',
+    sold INT DEFAULT 0 COMMENT 'Количество проданных',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    FOREIGN KEY (category_id) REFERENCES categories(id) ON DELETE SET NULL
+);
+
+-- =============================================
+-- 4. ТАБЛИЦА ПОЛЬЗОВАТЕЛЕЙ
+-- =============================================
+CREATE TABLE IF NOT EXISTS users (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    Password VARCHAR(255) NOT NULL,
+    email VARCHAR(255),
+    phone VARCHAR(50),
+    address TEXT,
+    role ENUM('admin', 'manager', 'user') DEFAULT 'user',
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
+
+-- =============================================
+-- 5. ТАБЛИЦА ЗАКАЗОВ
+-- =============================================
+CREATE TABLE IF NOT EXISTS orders (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    user_id INT,
+    total DECIMAL(10, 2) NOT NULL,
+    status ENUM('new', 'processing', 'shipped', 'delivered', 'cancelled') DEFAULT 'new',
+    address TEXT,
+    phone VARCHAR(50),
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE SET NULL
+);
+
+-- =============================================
+-- 6. ТАБЛИЦА ТОВАРОВ В ЗАКАЗЕ
+-- =============================================
+CREATE TABLE IF NOT EXISTS order_items (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    order_id INT NOT NULL,
+    product_id INT NOT NULL,
+    quantity INT NOT NULL,
+    price DECIMAL(10, 2) NOT NULL,
+    FOREIGN KEY (order_id) REFERENCES orders(id) ON DELETE CASCADE,
+    FOREIGN KEY (product_id) REFERENCES products(id) ON DELETE CASCADE
+);
+
+-- =============================================
+-- 7. ТАБЛИЦА ЛОГОВ АДМИНОВ
+-- =============================================
+CREATE TABLE IF NOT EXISTS admin_logs (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    admin_id INT,
+    action TEXT,
+    created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (admin_id) REFERENCES users(id) ON DELETE SET NULL
+);
+
+-- =============================================
+-- 8. ВСТАВКА КАТЕГОРИЙ
+-- =============================================
+INSERT INTO categories (name, slug) VALUES 
+('Одежда', 'clothing'),
+('Обувь', 'footwear'),
+('Спортпит', 'sports-nutrition'),
+('Инвентарь', 'equipment'),
+('Новинки', 'new'),
+('SALE', 'sale');
+
+-- =============================================
+-- 9. ВСТАВКА АДМИНА (пароль: admin123)
+-- =============================================
+INSERT INTO users (name, Password, role) VALUES 
+('Admin', 'admin123', 'admin');
+
+-- =============================================
+-- 10. ТЕСТОВЫЕ ТОВАРЫ (ДЛЯ ПРОВЕРКИ)
+-- =============================================
+INSERT INTO products (name, price, description, category_id, stock, sold) VALUES 
+('Nike Air Max', 14990, 'Кроссовки Nike Air Max для бега', 2, 25, 12),
+('Adidas Ultraboost', 18990, 'Профессиональные беговые кроссовки', 2, 15, 8),
+('Футболка Nike Dri-FIT', 3490, 'Спортивная футболка из дышащей ткани', 1, 50, 20),
+('Протеин Whey Gold', 5990, 'Сывороточный протеин 900г', 3, 30, 45),
+('Гантели 5кг', 2990, 'Регулируемые гантели', 4, 10, 5),
+('Коврик для йоги', 1890, 'Противоскользящий коврик', 4, 20, 8);
+
+-- =============================================
+-- 11. ПРОВЕРКА СОЗДАНИЯ ТАБЛИЦ
+-- =============================================
+SHOW TABLES;
+SELECT * FROM categories;
+SELECT * FROM users;
+SELECT * FROM products;
